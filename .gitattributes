@@ -1,0 +1,3 @@
+vendor/** linguist-generated=true
+ci/reports/** linguist-generated=true
+* text=auto eol=lf
