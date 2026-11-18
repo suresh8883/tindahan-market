@@ -1,0 +1,316 @@
+<testsuites id="" name="" tests="21" failures="5" skipped="0" errors="1" time="5.943759">
+<testsuite name="regression/cart.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="4" failures="1" skipped="0" time="9.778" errors="1">
+<testcase name="cart regression › changing a quantity reprices the line and the subtotal" classname="regression/cart.spec.ts" time="0.541">
+</testcase>
+<testcase name="cart regression › removing the only item empties the cart and drops shipping" classname="regression/cart.spec.ts" time="0.523">
+</testcase>
+<testcase name="cart regression › emptying the cart removes every line" classname="regression/cart.spec.ts" time="5.355">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/trace.zip]]
+]]>
+</system-out>
+<error message="locator.click: Timeout 5000ms exceeded." type="TimeoutError">
+<![CDATA[  [chromium] › regression/cart.spec.ts:22:7 › cart regression › emptying the cart removes every line 
+
+    TimeoutError: locator.click: Timeout 5000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Clear cart' })
+
+
+       at ../pages/cart.page.ts:58
+
+      56 |
+      57 |   async clearCart(): Promise<void> {
+    > 58 |     await this.clearButton.click();
+         |                            ^
+      59 |     await this.vouchers.settled();
+      60 |   }
+      61 |
+        at CartPage.clearCart (/workspace/tindahan-market/tests/web/pages/cart.page.ts:58:28)
+        at /workspace/tindahan-market/tests/web/specs/regression/cart.spec.ts:25:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-cart-cart-regre-ca332-the-cart-removes-every-line-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</error>
+</testcase>
+<testcase name="cart regression › the header count follows the cart" classname="regression/cart.spec.ts" time="3.359">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [chromium] › regression/cart.spec.ts:29:7 › cart regression › the header count follows the cart ──
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByTestId('cart-item-count')
+    Expected: "3"
+    Timeout: 3000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByTestId('cart-item-count') with timeout 3000ms
+      - waiting for getByTestId('cart-item-count')
+
+
+      30 |     const cart = new CartPage(page);
+      31 |     await cart.open({ kape: 2, walis: 1 });
+    > 32 |     await expect(cart.itemCount).toHaveText('3');
+         |                                  ^
+      33 |   });
+      34 | });
+      35 |
+        at /workspace/tindahan-market/tests/web/specs/regression/cart.spec.ts:32:34
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-cart-cart-regre-7654c-ader-count-follows-the-cart-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="regression/orders.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="2" failures="1" skipped="0" time="1.965" errors="0">
+<testcase name="order confirmation regression › confirmation shows an order reference" classname="regression/orders.spec.ts" time="0.806">
+</testcase>
+<testcase name="order confirmation regression › confirmation shows the loyalty points earned" classname="regression/orders.spec.ts" time="1.159">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  [chromium] › regression/orders.spec.ts:26:7 › order confirmation regression › confirmation shows the loyalty points earned 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "You earned 1 points"
+    Received: "Calculating points…"
+
+      27 |     const order = await placeCodOrder(page);
+      28 |     await expect(order.total).toHaveText('₱148.00');
+    > 29 |     expect(await order.loyaltyPoints.textContent()).toBe(t('en', 'loyalty.earned', { points: 1 }));
+         |                                                     ^
+      30 |   });
+      31 | });
+      32 |
+        at /workspace/tindahan-market/tests/web/specs/regression/orders.spec.ts:29:53
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-orders-order-co-01a6f-s-the-loyalty-points-earned-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="regression/payments.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="4" failures="2" skipped="0" time="4.718" errors="0">
+<testcase name="payments regression › e-wallet approval returns to a paid order" classname="regression/payments.spec.ts" time="0.678">
+</testcase>
+<testcase name="payments regression › e-wallet cancellation returns to checkout without charging" classname="regression/payments.spec.ts" time="0.631">
+</testcase>
+<testcase name="payments regression › QR Ph asks for the full order total" classname="regression/payments.spec.ts" time="3.37">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(locator).toHaveText(expected) failed" type="expect.toHaveText">
+<![CDATA[  [chromium] › regression/payments.spec.ts:40:7 › payments regression › QR Ph asks for the full order total 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('qr-amount')
+    Expected: "₱148.00"
+    Received: "₱49.00"
+    Timeout:  3000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('qr-amount') with timeout 3000ms
+      - waiting for getByTestId('qr-amount')
+        9 × locator resolved to <strong data-testid="qr-amount">₱49.00</strong>
+          - unexpected value "₱49.00"
+
+
+      48 |     await expect(checkout.vouchers.total).toHaveText('₱148.00');
+      49 |     await checkout.placeOrder();
+    > 50 |     await expect(qr.amount).toHaveText('₱148.00');
+         |                             ^
+      51 |   });
+      52 |
+      53 |   test('wallet sandbox pre-authorises a payment', async ({ request }) => {
+        at /workspace/tindahan-market/tests/web/specs/regression/payments.spec.ts:50:29
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-payments-paymen-c54d2-ks-for-the-full-order-total-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="payments regression › wallet sandbox pre-authorises a payment" classname="regression/payments.spec.ts" time="0.039">
+<system-out>
+<![CDATA[wallet sandbox preauth: HTTP 401 {"error":"unauthorized","detail":"sandbox token expired"}
+
+[[ATTACHMENT|../test-results/artifacts/regression-payments-paymen-eca0d-ox-pre-authorises-a-payment-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-payments-paymen-eca0d-ox-pre-authorises-a-payment-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  [chromium] › regression/payments.spec.ts:53:7 › payments regression › wallet sandbox pre-authorises a payment 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 401
+
+      56 |     });
+      57 |     console.log(`wallet sandbox preauth: HTTP ${response.status()} ${await response.text()}`);
+    > 58 |     expect(response.status()).toBe(200);
+         |                               ^
+      59 |     expect(await response.json()).toEqual({ status: 'authorised' });
+      60 |   });
+      61 | });
+        at /workspace/tindahan-market/tests/web/specs/regression/payments.spec.ts:58:31
+
+    Error Context: ../../../test-results/artifacts/regression-payments-paymen-eca0d-ox-pre-authorises-a-payment-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-payments-paymen-eca0d-ox-pre-authorises-a-payment-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-payments-paymen-eca0d-ox-pre-authorises-a-payment-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="regression/vouchers.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="4" failures="1" skipped="0" time="1.086" errors="0">
+<testcase name="voucher regression › an unknown code is rejected with a message" classname="regression/vouchers.spec.ts" time="0.198">
+</testcase>
+<testcase name="voucher regression › an expired voucher is rejected" classname="regression/vouchers.spec.ts" time="0.26">
+</testcase>
+<testcase name="voucher regression › removing an applied voucher restores the full total" classname="regression/vouchers.spec.ts" time="0.328">
+</testcase>
+<testcase name="voucher regression › the discount shows as soon as the voucher is accepted" classname="regression/vouchers.spec.ts" time="0.3">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/test-failed-1.png]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/error-context.md]]
+
+[[ATTACHMENT|../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/trace.zip]]
+]]>
+</system-out>
+<failure message="expect(received).toBe(expected) // Object.is equality" type="expect.toBe">
+<![CDATA[  [chromium] › regression/vouchers.spec.ts:31:7 › voucher regression › the discount shows as soon as the voucher is accepted 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "-₱200.00"
+    Received: "₱0.00"
+
+      38 |     ]);
+      39 |     expect((await response.json()).applied).toEqual([VOUCHERS.sale1111]);
+    > 40 |     expect(await cart.vouchers.discount.textContent()).toBe('-₱200.00');
+         |                                                        ^
+      41 |   });
+      42 | });
+      43 |
+        at /workspace/tindahan-market/tests/web/specs/regression/vouchers.spec.ts:40:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../test-results/artifacts/regression-vouchers-vouche-d5257--as-the-voucher-is-accepted-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="smoke.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="4" failures="0" skipped="0" time="1.189" errors="0">
+<testcase name="smoke › catalogue lists a product at its peso price" classname="smoke.spec.ts" time="0.211">
+</testcase>
+<testcase name="smoke › adding to the cart prices the order with shipping" classname="smoke.spec.ts" time="0.27">
+</testcase>
+<testcase name="smoke › cash on delivery order is confirmed with its total" classname="smoke.spec.ts" time="0.494">
+</testcase>
+<testcase name="smoke › the Filipino locale switch translates the store" classname="smoke.spec.ts" time="0.214">
+</testcase>
+</testsuite>
+<testsuite name="voucher.start.spec.ts" timestamp="2026-11-02T07:24:18.942Z" hostname="chromium" tests="3" failures="0" skipped="0" time="0.673" errors="0">
+<testcase name="SALE1111 voucher › minimum spend › ₱999 is below the minimum, so the voucher is rejected" classname="voucher.start.spec.ts" time="0.229">
+</testcase>
+<testcase name="SALE1111 voucher › minimum spend › ₱1,000 is exactly the minimum, so 20% comes off" classname="voucher.start.spec.ts" time="0.219">
+</testcase>
+<testcase name="SALE1111 voucher › minimum spend › ₱1,001 is above the minimum, so 20% comes off" classname="voucher.start.spec.ts" time="0.225">
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,5 +1,5 @@
 import type { Locator } from '@playwright/test';
-import type { Cart, ProductId } from '../fixtures/catalogue';
+import { productName, type Cart, type ProductId } from '../fixtures/catalogue';
 import { BasePage } from './base.page';
 import { VoucherPanel } from './voucher.panel';
 
@@ -30,6 +30,33 @@ export class CartPage extends BasePage {
 
   lineTotal(id: ProductId): Locator {
     return this.page.getByTestId(`cart-line-total-${id}`);
+  }
+
+  get clearButton(): Locator {
+    return this.page.getByRole('button', { name: 'Clear cart' });
+  }
+
+  get itemCount(): Locator {
+    return this.page.getByTestId('cart-item-count');
+  }
+
+  quantityInput(id: ProductId): Locator {
+    return this.page.getByRole('spinbutton', { name: this.text('cart.quantityOf', { name: productName(id, this.locale) }) });
+  }
+
+  async setQuantity(id: ProductId, quantity: number): Promise<void> {
+    await Promise.all([this.page.waitForResponse('**/api/quote'), this.quantityInput(id).fill(String(quantity)).then(() => this.quantityInput(id).press('Enter'))]);
+    await this.vouchers.settled();
+  }
+
+  async removeItem(id: ProductId): Promise<void> {
+    await this.page.getByRole('button', { name: this.text('cart.removeItem', { name: productName(id, this.locale) }) }).click();
+    await this.vouchers.settled();
+  }
+
+  async clearCart(): Promise<void> {
+    await this.clearButton.click();
+    await this.vouchers.settled();
   }
 
   get emptyMessage(): Locator {

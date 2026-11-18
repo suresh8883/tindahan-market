@@ -1,4 +1,8 @@
+import { existsSync } from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
+
+// CI settings shared with the workflow. Variables already set in the shell win.
+if (existsSync('ci/wallet-sandbox.env')) process.loadEnvFile('ci/wallet-sandbox.env');
 
 const port = Number(process.env.TINDAHAN_TEST_PORT ?? 4310);
 const baseURL = `http://127.0.0.1:${port}`;

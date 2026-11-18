@@ -1,0 +1,46 @@
+name: e2e
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Rules
+        run: npm run check:rules
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Playwright
+        run: npx playwright test
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports-node-${{ matrix.node }}
+          path: |
+            reports/junit.xml
+            playwright-report/
+          retention-days: 14

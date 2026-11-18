@@ -15,6 +15,7 @@
     "doctor": "node scripts/doctor.mjs",
     "defects": "node scripts/defects.mjs",
     "check:rules": "node scripts/check-rules.mjs",
+    "ci:summary": "node scripts/ci-summary.mjs",
     "check:tk8": "node scripts/check-lab1.mjs"
   },
   "devDependencies": {
