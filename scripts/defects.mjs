@@ -4,15 +4,20 @@
 // A test KILLS a variant only if it passes on clean and, on the variant, fails an assertion on a
 // business value. A timeout, a missing element or a visibility check is not a kill.
 //
-// Usage: npm run defects [-- path/to/spec.ts]
+// Usage: npm run defects [-- path/to/spec.ts] [--reveal]
+//   --reveal also runs the held-out variant. The facilitator gives you this flag at Room results.
 import { spawn } from 'node:child_process';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { cleanEnv, freePort, playwrightCli, ROOT } from './lib/harness.mjs';
+import { cleanEnv, freePort, playwrightCli, ROOT, specPath } from './lib/harness.mjs';
 
-const VARIANTS = ['D1', 'D2', 'D3'];
-const spec = process.argv[2] ?? 'tests/web/specs/voucher.start.spec.ts';
+const args = process.argv.slice(2);
+// If the `--` before the flag is missing (or Windows PowerShell's npm.ps1 drops it), npm keeps
+// `--reveal` for itself and sets npm_config_reveal instead: honour that too.
+const reveal = args.includes('--reveal') || process.env.npm_config_reveal === 'true';
+const VARIANTS = reveal ? ['D1', 'D2', 'D3', 'D4'] : ['D1', 'D2', 'D3'];
+const spec = specPath(args.find((a) => !a.startsWith('--')) ?? 'tests/web/specs/voucher.start.spec.ts');
 const VALUE_MATCHERS =
   /\b(toHaveText|toContainText|toHaveValue|toHaveAttribute|toBe|toEqual|toStrictEqual|toBeCloseTo|toMatch|toContain|toBeGreaterThan|toBeGreaterThanOrEqual|toBeLessThan|toBeLessThanOrEqual)\b/;
 
@@ -88,7 +93,12 @@ let runs;
 try {
   runs = await Promise.all([null, ...VARIANTS].map((v) => runVariant(v, workDir)));
 } finally {
-  rmSync(workDir, { recursive: true, force: true });
+  try {
+    // Antivirus scanners on Windows can hold files briefly; never lose the matrix over a temp folder.
+    rmSync(workDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+  } catch {
+    /* the temp folder stays behind; harmless */
+  }
 }
 
 const [clean, ...variantRuns] = runs;
@@ -108,6 +118,10 @@ console.log(`${'test'.padEnd(width)}  ${columns.map((c) => c.padEnd(cellWidth)).
 console.log('-'.repeat(width + 2 + cellWidth * columns.length));
 
 const kills = new Map(VARIANTS.map((v) => [v, []]));
+// Timeouts and missing elements are not kills, but on a slow laptop they can hide one:
+// a test that would have failed on a price never got that far. Count them per variant so the
+// summary can say "re-run before concluding" instead of a flat NOT KILLED.
+const shaky = new Map(VARIANTS.map((v) => [v, 0]));
 for (const title of titles) {
   const onClean = clean.tests.get(title);
   const cells = [onClean === 'pass' ? 'pass' : 'FAILS-CLEAN'];
@@ -118,6 +132,7 @@ for (const title of titles) {
       continue;
     }
     if (outcome === 'value') kills.get(run.variant).push(title);
+    if (outcome === 'timeout' || outcome === 'locator') shaky.set(run.variant, shaky.get(run.variant) + 1);
     cells.push(CELL[outcome]);
   }
   console.log(`${title.padEnd(width)}  ${cells.map((c) => c.padEnd(cellWidth)).join('')}`);
@@ -132,10 +147,13 @@ let killed = 0;
 for (const variant of VARIANTS) {
   const by = kills.get(variant);
   if (by.length) killed++;
+  const shakyCount = shaky.get(variant);
   console.log(
     by.length
       ? `${variant}: KILLED by ${by.length} test${by.length === 1 ? '' : 's'}`
-      : `${variant}: NOT KILLED, no test failed on a business value`,
+      : shakyCount
+        ? `${variant}: NOT KILLED, no test failed on a business value (${shakyCount} timeout or missing-element failure${shakyCount === 1 ? '' : 's'}: re-run before concluding)`
+        : `${variant}: NOT KILLED, no test failed on a business value`,
   );
 }
 const seconds = ((Date.now() - started) / 1000).toFixed(1);

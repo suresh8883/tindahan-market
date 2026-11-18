@@ -1,7 +1,7 @@
 node_modules/
 test-results/
 playwright-report/
-reports/
+/reports/
 *.log
-!ci/reports/**/*.log
 .DS_Store
+!ci/reports/**/*.log

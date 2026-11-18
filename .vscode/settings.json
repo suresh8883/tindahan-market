@@ -1,0 +1,4 @@
+{
+  // New files in this workshop repo use LF line endings on every OS, so the checks read them the same way.
+  "files.eol": "\n"
+}

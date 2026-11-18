@@ -56,7 +56,11 @@ function checkChromium() {
     report('PASS', 'Chromium', `launched version ${run.stdout.trim()}`, seconds);
     return true;
   }
-  report('FAIL', 'Chromium', 'could not launch. Run: npx playwright install chromium', seconds);
+  if (run.error?.code === 'ETIMEDOUT') {
+    report('FAIL', 'Chromium', 'did not start within 15 s. Close other apps and run npm run doctor again; if it keeps failing, run: npx playwright install --only-shell chromium', seconds);
+    return false;
+  }
+  report('FAIL', 'Chromium', 'could not launch. Run: npx playwright install --only-shell chromium', seconds);
   return false;
 }
 

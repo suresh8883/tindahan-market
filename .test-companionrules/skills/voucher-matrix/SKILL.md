@@ -1,11 +1,12 @@
 ---
 name: voucher-matrix
-description: Generate a boundary-value test matrix for a voucher or discount rule, then Playwright tests from it. Use when asked to test vouchers, discounts, minimum spend, caps, expiry, stacking or conflicts.
+description: Builds a boundary-value matrix for a voucher or discount rule (minimum spend, cap, expiry, stacking, conflicts, payment limits), then Playwright tests from it.
+keywords: [voucher, discount, boundary, matrix, stacking, cap]
 ---
 
 # Voucher boundary matrix
 
-Produce the matrix first, show it for review, and only then write tests.
+Produce the matrix first. Stop after the matrix and ask the user to approve it before writing any test.
 
 ## 1. Read the rule
 
@@ -25,6 +26,8 @@ Work out each row like this:
 - **Payment-dependent rule:** one row for each payment method, on both sides of any amount limit.
 
 Work out expected values by hand from the rule, showing the arithmetic. Never take them from running the app.
+
+Stop after the matrix and ask the user to approve it before writing any test.
 
 ## 3. Generate the tests
 

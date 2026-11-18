@@ -7,7 +7,7 @@
   var ORDER_KEY = 'tindahan.lastOrder';
   var CLOCK_KEY = 'tindahan.now';
   /* The summary repaints shortly after each quote, the way a framework batches a re-render. */
-  var RENDER_BATCH_MS = 24;
+  var RENDER_BATCH_MS = 12;
   var LOYALTY_DELAY_MS = 1500;
 
   function tr(key, params) {

@@ -2,7 +2,7 @@
   // Codespaces fallback for laptops that cannot install Node or Chromium.
   "name": "Tindahan Market lab",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
-  "postCreateCommand": "npm ci && npx playwright install --with-deps chromium",
+  "postCreateCommand": "npm ci && npx playwright install --with-deps --only-shell chromium",
   "forwardPorts": [3000],
   "portsAttributes": { "3000": { "label": "Tindahan Market", "onAutoForward": "notify" } },
   "customizations": {

@@ -1,0 +1,6 @@
+# Generated or bulky files the agent does not need to read.
+vendor/
+playwright-report/
+test-results/
+/reports/
+node_modules/

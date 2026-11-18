@@ -79,9 +79,9 @@ const files = listFiles(target);
 const findings = [];
 for (const file of files) {
   const raw = readFileSync(file, 'utf8');
-  const rawLines = raw.split('\n');
+  const rawLines = raw.split(/\r?\n/); // Windows editors may save CRLF
   stripComments(raw)
-    .split('\n')
+    .split(/\r?\n/)
     .forEach((line, index) => {
       for (const { rule, pattern } of CHECKS) {
         if (pattern.test(line)) {

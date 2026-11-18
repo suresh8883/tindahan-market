@@ -10,10 +10,20 @@ export function playwrightCli() {
   return path.join(ROOT, 'node_modules', '@playwright', 'test', 'cli.js');
 }
 
-/** The caller's environment without any store variant selected. */
+/**
+ * A spec path the way Playwright needs it: relative to the repo, with forward slashes.
+ * Playwright reads path arguments as regular expressions, so a Windows-style
+ * `tests\web\specs\x.spec.ts` (where `\w`, `\s` and `\t` are regex escapes) matches nothing.
+ */
+export function specPath(p) {
+  const abs = path.resolve(ROOT, p.replace(/\\/g, '/'));
+  return path.relative(ROOT, abs).split(path.sep).join('/');
+}
+
+/** The caller's environment without any store variant selected (any casing: Windows keeps `defect`). */
 export function cleanEnv(extra = {}) {
   const env = { ...process.env };
-  delete env.DEFECT;
+  for (const key of Object.keys(env)) if (key.toUpperCase() === 'DEFECT') delete env[key];
   return { ...env, ...extra };
 }
 
