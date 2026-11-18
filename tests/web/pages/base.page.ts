@@ -21,7 +21,7 @@ export abstract class BasePage {
   }
 
   get cartCount(): Locator {
-    return this.page.getByTestId('cart-item-count');
+    return this.page.getByTestId('header-cart-count');
   }
 
   get heading(): Locator {

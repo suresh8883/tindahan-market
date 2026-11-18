@@ -33,7 +33,7 @@ function layout(locale: Locale, page: PageName, title: string, main: string): st
   <a class="brand" href="/" data-testid="store-brand">${tr('store.name')}</a>
   <nav aria-label="${tr('nav.label')}">
     <a href="/">${tr('nav.catalogue')}</a>
-    <a href="/cart">${tr('nav.cart')} <span data-testid="cart-item-count">0</span></a>
+    <a href="/cart">${tr('nav.cart')} <span data-testid="header-cart-count">0</span></a>
   </nav>
   <label class="locale">${tr('locale.label')}
     <select data-testid="locale-switch">${options}</select>

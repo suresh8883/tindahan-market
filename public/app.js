@@ -44,7 +44,7 @@
     var count = Object.keys(cart.items).reduce(function (sum, id) {
       return sum + cart.items[id];
     }, 0);
-    byTestId('cart-item-count').textContent = String(count);
+    byTestId('header-cart-count').textContent = String(count);
   }
 
   /* Deep links: /cart?items=banig:1,kendi:2&vouchers=SALE1111&now=<ISO date-time> */
