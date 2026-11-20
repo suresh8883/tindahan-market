@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+    <EditText android:id="@+id/input_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Full name" android:inputType="textPersonName" android:importantForAutofill="no"/>
+    <TextView android:id="@+id/error_name" style="@style/Error" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enter your full name"/>
+    <EditText android:id="@+id/input_mobile" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mobile number" android:inputType="phone" android:importantForAutofill="no"/>
+    <TextView android:id="@+id/error_mobile" style="@style/Error" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enter a mobile number like 09171234567"/>
+    <EditText android:id="@+id/input_address" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Delivery address" android:inputType="textPostalAddress" android:importantForAutofill="no"/>
+    <TextView android:id="@+id/error_address" style="@style/Error" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Enter your delivery address"/>
+    <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Payment method" android:textStyle="bold"/>
+    <RadioGroup android:id="@+id/payment_group" android:layout_width="match_parent" android:layout_height="wrap_content" android:checkedButton="@+id/pay_cod">
+        <RadioButton android:id="@+id/pay_cod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Cash on delivery"/>
+        <RadioButton android:id="@+id/pay_qrph" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="QR Ph"/>
+    </RadioGroup>
+    <TextView android:id="@+id/checkout_total" style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textStyle="bold"/>
+    <TextView android:id="@+id/checkout_message" style="@style/Error" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/place_order" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Place order"/>
+</LinearLayout>
+</ScrollView>
