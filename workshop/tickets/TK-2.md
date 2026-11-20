@@ -19,7 +19,7 @@
 - Gate 1: `npm run typecheck` and `npm run check:rules` pass; no fixed sleeps, CSS or XPath locators, hard-coded secrets or skipped tests.
 - Gate 2: every test asserts a peso amount, a voucher message or an order status, never only that a page loaded. Every expected amount carries its arithmetic from the price list.
 - Gate 3: read the matrix. A test that kills nothing is a weak oracle or a case far from any boundary; log it, and decide whether to improve it or accept it as a regression check.
-- Expect the PRD-derived suite to inherit the PRD's blind spots: the PRD's acceptance criteria test ₱999 and ₱2,500 but never the subtotal of exactly ₱1,000. A suite is only as sharp as the document it came from.
+- Expect the PRD-derived suite to inherit the PRD's blind spots. A suite is only as sharp as the document it came from.
 - Ship-decision line: if a variant's behaviour would reach production, what is its Severity and Call? Classification App bug. If the only problem is a missing test, log it as an Automation issue with Call Fix it.
 
 ## Done when
@@ -35,4 +35,4 @@ P3 sent by 0:02 · tests green by 0:05 · matrix read by 0:07 · boundary prompt
 
 ## Rehearsed (single run)
 
-P3: 51 seconds of agent time, three approvals (Save, Run Command, Run in background). The agent turned four test cases into 7 tests, all passing, with `check:rules PASS` and its own test review clean. The kill matrix then read **2 of 3 killed**: the cap variant died at ₱2,501, the stacking variant died on PESO100 then SALE1111, and the minimum-spend variant survived because nothing tested a subtotal of exactly ₱1,000. That surviving variant is the point of the ticket: the PRD never asked for the exact boundary, so neither did the agent. The follow-up prompt (prompt guide, after P3) took 27 seconds and three approvals: one added test, 8 passing, and the matrix read **3 of 3**.
+P3: 51 seconds of agent time, three approvals (Save, Run Command, Run in background). The agent turned four test cases into 7 tests, all passing, with `check:rules PASS` and its own test review clean. The kill matrix then read **2 of 3 killed**. The surviving variant is the point of the ticket: the PRD never asked for that boundary, so neither did the agent. The follow-up prompt (prompt guide, after P3) took 27 seconds and three approvals: one added test, 8 passing, and the matrix read **3 of 3**.

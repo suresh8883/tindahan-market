@@ -22,7 +22,7 @@ In rehearsal (timed with the wording "the three test cases about cash on deliver
 
 After it passes: `npm run defects -- tests/web/specs/tk2.spec.ts` and read the kill matrix. If a hidden variant survives, tell the agent which boundary is missing, for example:
 
-> One hidden store variant survives: nothing tests the subtotal of exactly ₱1,000.00, the minimum spend for SALE1111. Add one test to tests/web/specs/tk2.spec.ts: a cart of banig:1,kendi:1 (₱999.00 + ₱1.00) with SALE1111 must show a discount of ₱200.00 and a total of ₱899.00 (1,000.00 − 200.00 + 99.00). Run the spec again.
+> One hidden store variant survives: nothing tests <the boundary you found, for example an exact amount and the rule it belongs to>. Add one test to tests/web/specs/tk2.spec.ts: a cart of <items> with <voucher> must show a discount of <amount> and a total of <amount> (<show the arithmetic from the price list>). Run the spec again.
 
 **P4 · TK-3 · failure analysis of five CI runs** (branch `lab3-ci-triage`; new task)
 

@@ -4,8 +4,7 @@
 // A test KILLS a variant only if it passes on clean and, on the variant, fails an assertion on a
 // business value. A timeout, a missing element or a visibility check is not a kill.
 //
-// Usage: npm run defects [-- path/to/spec.ts] [--reveal]
-//   --reveal also runs the held-out variant. The facilitator gives you this flag at Room results.
+// Usage: npm run defects [-- path/to/spec.ts]
 import { spawn } from 'node:child_process';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -13,8 +12,8 @@ import path from 'node:path';
 import { cleanEnv, freePort, playwrightCli, ROOT, specPath } from './lib/harness.mjs';
 
 const args = process.argv.slice(2);
-// If the `--` before the flag is missing (or Windows PowerShell's npm.ps1 drops it), npm keeps
-// `--reveal` for itself and sets npm_config_reveal instead: honour that too.
+// If the `--` before a flag is missing (or Windows PowerShell's npm.ps1 drops it), npm keeps the
+// flag for itself and sets an npm_config_* variable instead: honour that too.
 const reveal = args.includes('--reveal') || process.env.npm_config_reveal === 'true';
 const VARIANTS = reveal ? ['D1', 'D2', 'D3', 'D4'] : ['D1', 'D2', 'D3'];
 const spec = specPath(args.find((a) => !a.startsWith('--')) ?? 'tests/web/specs/voucher.start.spec.ts');
