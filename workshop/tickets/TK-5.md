@@ -22,4 +22,4 @@ A violation list with severities exists in the chat, and the ship-decision log h
 
 ## Notes
 
-The base-rule scan runs in a browser on your machine and needs no extra plan. An advanced scan that includes AI-detected issues runs in the cloud and needs an accessibility plan; it is not part of this ticket. Accessibility stayed out of the core tickets on the vendor team's advice: the local scanner is the step most likely to struggle on a busy laptop.
+The base-rule scan runs in a browser on your machine and needs no extra plan. An advanced scan that includes AI-detected issues runs in the cloud and needs an accessibility plan; it is not part of this ticket. Accessibility stayed out of the core tickets because the local scanner is the step most likely to struggle on a busy laptop.

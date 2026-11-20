@@ -21,7 +21,7 @@
 ## Reviewer
 
 - Every test case cites a PRD section or an AC, and every expected amount is computed from the price list, with the arithmetic visible. Reject "verify the page loads".
-- Ask one question of the set: does any case pay by QR Ph **with shipping above ₱0**? If not, say so in the log: an amount check with free shipping proves less.
+- Ask one question of the set: does every payment method have a case that checks the amount charged? If not, say so in the log.
 - For each gap the agent reports: Classification **Documentation gap**; Severity **Major** for a missing flow, **Minor** for a missing message; Call **Fix it** (update the PRD before 11.11). If the exploration surfaced an app bug instead, classify it as **App bug** and decide the Call.
 - Write one line per finding in the [ship-decision log](../ship-decision-log.md).
 

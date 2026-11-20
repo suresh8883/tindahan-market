@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:label="Tindahan Market" android:icon="@drawable/ic_launcher" android:theme="@style/AppTheme" android:allowBackup="false">
+        <activity android:name=".CatalogueActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CartActivity" android:label="Your cart" />
+        <activity android:name=".CheckoutActivity" android:label="Checkout" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".QrPayActivity" android:label="Pay with QR Ph" />
+        <activity android:name=".ConfirmationActivity" android:label="Order confirmed" />
+    </application>
+</manifest>

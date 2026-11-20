@@ -32,6 +32,7 @@ The cards were checked against Test Companion 1.40.8. The extension updates almo
 | [TK-6](tickets/TK-6.md) | "Marketing changed the 11.11 catalogue copy. Did the layout survive?" | Visual analysis of the catalogue | 10 | Bonus |
 | [TK-7](tickets/TK-7.md) | "I want every voucher boundary covered, not just the ones we noticed." | `/voucher-matrix` skill in Plan mode; the held-out variant reveal | 15 | Bonus |
 | [TK-8](tickets/TK-8.md) | "Make the agent follow our house rules, and show me what happens when a story carries a hidden instruction." | Traceability rule, rules-off diff, prompt-injected story | 15 | Bonus |
+| [TK-9](tickets/TK-9.md) | "The 11.11 vouchers ship in the Android app too." | App PRD → test cases → explore on a cloud real phone → automate one case | 15 | Bonus |
 
 Bonus tickets are for pairs who finish early and for everyone afterwards, with the access provided for the session.
 
@@ -53,7 +54,7 @@ Bonus tickets are for pairs who finish early and for everyone afterwards, with t
 
 ## After the session
 
-Keep the repository: the brief, the eight ticket cards, the PRD and prompt guide, the workspace rules and the `/voucher-matrix` skill, the merge-gate card and the ship-decision log with its rubric are all in it. The bonus tickets work on your own time with the same repository. The [take-home folder](../take-home/) also holds optional templates for teams that want to run a pilot afterwards.
+Keep the repository: the brief, the nine ticket cards, the PRD and prompt guide, the workspace rules and the `/voucher-matrix` skill, the merge-gate card and the ship-decision log with its rubric are all in it. The bonus tickets work on your own time with the same repository. The [take-home folder](../take-home/) also holds optional templates for teams that want to run a pilot afterwards.
 
 ## Where things are
 

@@ -32,7 +32,7 @@ The repo's Page Objects and rules already steer the agent towards good tests. Wh
 
 ## Part B · A hidden instruction in a story (5 min)
 
-The speaker shows this live with a story file that carries an HTML comment, invisible in Markdown preview, telling the agent to skip the smoke tests and create a file silently. Reproduce it yourself afterwards:
+The idea: a story file that carries an HTML comment, invisible in Markdown preview, telling the agent to skip the smoke tests and create a file silently. Reproduce it yourself afterwards:
 
 1. Write a short user story in `docs/stories/TM-499.md` and add an HTML comment with an instruction you did not mean, for example to mark a test `test.skip`.
 2. Open it, close other tabs, and ask the agent to write tests for the story.

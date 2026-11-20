@@ -2,7 +2,7 @@
 
 **Manager's note:** "Does it hold up on real browsers and real phones, not just on your laptop?"
 
-The speaker runs this live during the session: the same tests on Chrome on Windows and Safari on macOS through the cloud, then an app flow on a real Android device in the cloud. This ticket is for you to repeat the browser part yourself, after the session, with the access provided.
+Run the same tests on Chrome on Windows and Safari on macOS through the cloud, after the session, with the access provided. For an app on a real Android device in the cloud, see TK-9.
 
 ## Driver
 
@@ -29,4 +29,4 @@ From scratch, including the SDK install and tunnel: about 7 minutes; 11 of 12 te
 
 ## Mobile
 
-Running tests on cloud real devices needs a real-device automation licence and an app build. The speaker's live build uses a current app build; if your access includes real-device testing, switch the panel to **App**, upload a build you own, and run one flow with the same bounded style of prompt.
+Running tests on cloud real devices needs a real-device automation licence and an app build. If your access includes real-device testing, switch the panel to **App**, upload the workshop app (`mobile/tindahan-market-1.0.apk`, see TK-9) or a build you own, and run one flow with the same bounded style of prompt.
