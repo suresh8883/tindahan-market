@@ -4,3 +4,4 @@ playwright-report/
 test-results/
 /reports/
 node_modules/
+mobile/android/

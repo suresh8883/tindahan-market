@@ -124,6 +124,7 @@ The session is a release decision. Your manager hands you tickets for the 11.11 
 | [TK-3](workshop/tickets/TK-3.md) six CI failures → repair vs real bug → ship decision | [TK-6](workshop/tickets/TK-6.md) visual analysis |
 | | [TK-7](workshop/tickets/TK-7.md) `/voucher-matrix` and the held-out variant |
 | | [TK-8](workshop/tickets/TK-8.md) house rules and a hidden instruction |
+| | [TK-9](workshop/tickets/TK-9.md) the same release on a phone: the Android app in [`mobile/`](mobile/README.md) |
 
 Every prompt is in [`workshop/prompt-guide.md`](workshop/prompt-guide.md), bounded on purpose. The reviewer's record, including the merge-gate table, is [`workshop/ship-decision-log.md`](workshop/ship-decision-log.md).
 

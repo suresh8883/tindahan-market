@@ -5,3 +5,8 @@ playwright-report/
 *.log
 .DS_Store
 !ci/reports/**/*.log
+# Android source in mobile/android
+mobile/android/.gradle/
+mobile/android/app/build/
+mobile/android/build/
+mobile/android/local.properties
