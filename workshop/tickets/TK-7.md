@@ -25,7 +25,7 @@
 
 ## Done when
 
-`npm run defects` prints `RESULT: 3/3 killed` and `npm run check:rules` prints `check:rules PASS`. Then run the held-out check with the flag the facilitator announces at Room results. A suite tuned to the three variants it could see often misses a boundary of the same kind on another voucher; held-out detection is the real KPI.
+`npm run defects` prints `RESULT: 3/3 killed` and `npm run check:rules` prints `check:rules PASS`. Then run the held-out check with the flag the facilitator announces at Room results. A suite tuned to the variants it could see can miss one it could not; held-out detection is the real KPI.
 
 ## Rehearsed
 

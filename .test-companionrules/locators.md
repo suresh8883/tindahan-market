@@ -7,7 +7,7 @@
 
 ## Locale
 
-The store speaks English and Filipino, so accessible names change with the locale.
+The store is localised, so accessible names change with the locale.
 
 - Take every name from the locale catalogue, `src/i18n/catalogue.ts`, through `t(locale, key)` from `tests/web/support/i18n.ts`.
 - Never type a UI string such as `'Apply voucher'` into a test or Page Object.

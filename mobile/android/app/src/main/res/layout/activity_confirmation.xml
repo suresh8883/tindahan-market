@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center_horizontal" android:padding="24dp">
+    <TextView style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Thank you for your order!" android:textSize="20sp" android:textStyle="bold"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Order reference" android:textColor="@color/muted"/>
+    <TextView android:id="@+id/order_reference" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="22sp" android:textStyle="bold" android:textColor="@color/brand" android:textIsSelectable="true"/>
+    <TextView android:id="@+id/order_total" style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp"/>
+    <TextView android:id="@+id/payment_status" style="@style/Label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp"/>
+    <Button android:id="@+id/new_order" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Start a new order"/>
+</LinearLayout>
