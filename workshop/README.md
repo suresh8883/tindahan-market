@@ -54,7 +54,7 @@ Bonus tickets are for pairs who finish early and for everyone afterwards, with t
 
 ## After the session
 
-Keep the repository: the brief, the eight ticket cards, the PRD and prompt guide, the workspace rules and the `/voucher-matrix` skill, the merge-gate card and the ship-decision log with its rubric are all in it. The bonus tickets work on your own time with the same repository. The [take-home folder](../take-home/) also holds optional templates for teams that want to run a pilot afterwards.
+Keep the repository: the brief, the nine ticket cards, the PRD and prompt guide, the workspace rules and the `/voucher-matrix` skill, the merge-gate card and the ship-decision log with its rubric are all in it. The bonus tickets work on your own time with the same repository. The [take-home folder](../take-home/) also holds optional templates for teams that want to run a pilot afterwards.
 
 ## Where things are
 

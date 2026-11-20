@@ -17,7 +17,7 @@
 3. **Keep** or **Undo** each proposed change with the reviewer. Then run `npx playwright test tests/web/specs/regression --retries=0`.
 4. Save the bug report for anything you classified as a genuine bug in `docs/bugs/`, with the expected and received values.
 
-The speaker demonstrates the alternative route during the segment: **Panels → Failure Analysis → Import an Allure or JUnit report**. That panel uploads a report into a cloud reporting project and labels each failure Product Bug, Automation Bug, Environment Issue, No Defect or To Be Investigated; those map onto this ticket's classes (genuine app bug; stale selector, timing or flaky; environment; no defect; not yet classified). The chat route above needs no cloud project and is the one the pairs use.
+An alternative route, for after the session: **Panels → Failure Analysis → Import an Allure or JUnit report**. That panel uploads a report into a cloud reporting project and labels each failure Product Bug, Automation Bug, Environment Issue, No Defect or To Be Investigated; those map onto this ticket's classes (genuine app bug; stale selector, timing or flaky; environment; no defect; not yet classified). The chat route above needs no cloud project and is the one the pairs use.
 
 ## Reviewer
 

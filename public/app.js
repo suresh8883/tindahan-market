@@ -6,7 +6,6 @@
   var CART_KEY = 'tindahan.cart';
   var ORDER_KEY = 'tindahan.lastOrder';
   var CLOCK_KEY = 'tindahan.now';
-  /* The summary repaints shortly after each quote, the way a framework batches a re-render. */
   var RENDER_BATCH_MS = 12;
   var LOYALTY_DELAY_MS = 1500;
 
@@ -301,7 +300,6 @@
     byTestId('order-total').textContent = peso(order.totalCentavos);
     byTestId('order-status').textContent = tr(paid ? 'order.status.paid' : 'order.status.cod');
     saveCart({ items: {}, vouchers: [] });
-    /* Points come from a slower service, so the figure arrives after the page has rendered. */
     setTimeout(function () {
       byTestId('loyalty-points').textContent = tr('loyalty.earned', {
         points: Math.floor(order.totalCentavos / 10000),

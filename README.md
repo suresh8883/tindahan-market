@@ -37,11 +37,11 @@ Swap roles between labs if you both have a laptop.
 
 ## The store
 
-Run it yourself with `npm start` and open <http://127.0.0.1:3000>. Add `?lang=fil` for Filipino, or use the language switch.
+Run it yourself with `npm start` and open <http://127.0.0.1:3000>.
 
 - **Pages:** catalogue `/`, cart `/cart`, checkout `/checkout`, order confirmation.
-- **Payments:** cash on delivery (COD), the KaPera mock e-wallet (redirects to a mock wallet and back) and a QR Ph mock.
-- **Deep links:** `/cart?items=banig:1,kendi:2` fills the cart; `&now=<ISO date-time>` sets the store clock for that browser session.
+- **Payments:** cash on delivery (COD) and a QR Ph mock, among others.
+- **Deep links:** `/cart?items=kape:2,walis:1` fills the cart; `&now=<ISO date-time>` sets the store clock for that browser session.
 - **Deterministic:** no database, no randomness in prices, and a fixed store clock.
 
 ### Pricing rules
@@ -151,5 +151,5 @@ Measured from a fresh clone on macOS (Apple silicon) on a home connection. Your 
 - **Unexpected failures in `npm test`:** make sure `DEFECT` is not set in your shell (PowerShell `Remove-Item Env:DEFECT`; Command Prompt `set DEFECT=`). `npm run defects` and `npm run doctor` clear it for you.
 - **Windows, "running scripts is disabled on this system":** Windows PowerShell blocks `npm` and `npx` by default. Run once, no admin needed: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned -Force` (`-Force` skips a confirmation prompt whose default answer is No). If your company policy blocks that, use Command Prompt instead, and make it VS Code's default (Ctrl+Shift+P → "Terminal: Select Default Profile" → Command Prompt) so the agent's commands run there too.
 - **Windows, "No tests found":** type test paths with forward slashes, `tests/web/specs/...`, even on Windows. The npm scripts accept either.
-- **Held-out result shows 1/3 instead of x/4:** keep the `--` before the arguments: `npm run defects -- tests/web/specs/tk2.spec.ts --reveal`.
+- **Held-out result shows 1/3 instead of x/4:** keep the `--` before the arguments: `npm run defects -- tests/web/specs/tk2.spec.ts <the flag announced in the room>`.
 - **The agent says it cannot launch Chrome** ("The selected Chrome path isn't an executable" or "Chrome wasn't found"): on macOS the extension reads the `CHROME_PATH` environment variable first and only checks that the path exists. If your shell exports `CHROME_PATH` as a folder (for example `/Applications/Google Chrome.app/Contents/MacOS`), VS Code started from that terminal inherits it and the launch fails. Correct or remove the export in your shell profile (for example `~/.zshrc`), then quit VS Code completely (Cmd+Q) and reopen it: VS Code reads the profile again every time it starts, so unsetting the variable in one terminal is not enough. In the room you can also let the agent carry on; it falls back to reading the pages.
